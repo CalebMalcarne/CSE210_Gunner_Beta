@@ -16,7 +16,7 @@ from game_.services.raylib.raylib_video_service import RaylibVideoService
 from game_.services.raylib.raylib_keyboard_service import RaylibKeyboardService
 from game_.services.raylib.raylib_mouse_service import RaylibMouseService
 from game_.casting.rectangle import Rectangle
-from game_.casting.testObj import testobj
+from game_.casting.gunner import Gunner
 from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.scripting.DrawGunner import drawgunner
@@ -29,7 +29,7 @@ def testObjs(cast):
     velocity = Point(0,0)
     body = Body(position, size, velocity)
     image = Image(TEST_IMAGE)
-    test = testobj(body, image, False)
+    test = Gunner(body, image, False)
     cast.add_actor(TEST_GROUP,test)   
 
 def main():

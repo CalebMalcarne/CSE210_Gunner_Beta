@@ -4,11 +4,13 @@ from game_.casting.rectangle import Rectangle
 from constants import *
 
 TEST_GROUP = "test"
-BLUE = 0
+BLUE = (0,218,255,255)
+WHITE = (255,255,255,255)
 
 class drawgunner(Action):
     def __init__(self, video_service):
         self._video_service = video_service
+        self._line_color = WHITE
 
     def draw_Lines(self, C, body):
         position = body.get_position()
@@ -20,7 +22,9 @@ class drawgunner(Action):
         line_end_x_b = 0
         self._video_service.draw_line(line_start_x, line_start_y, line_end_x_a, line_end_y_a, C, C)
         self._video_service.draw_line(line_start_x, line_start_y, line_end_x_b, line_end_y_a, C, C)
-
+    
+    def set_Line_Color(self, line_color):
+        pass
 
     def execute(self, cast, script, callback):
         testobj = cast.get_first_actor(TEST_GROUP)
@@ -32,6 +36,7 @@ class drawgunner(Action):
         
         image =  testobj.get_image()
         position = body.get_position()
-        self.draw_Lines((255,255,255,255), body)
+        self.draw_Lines(self._line_color, body)
         #self._video_service.draw_image(image, position)
+
             

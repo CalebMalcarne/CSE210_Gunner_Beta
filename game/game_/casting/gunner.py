@@ -2,7 +2,7 @@ from game_.casting.actor import Actor
 from game_.casting.point import Point
 
 
-class testobj(Actor):
+class Gunner(Actor):
 
     def __init__(self, body, image, debug = False):
 
