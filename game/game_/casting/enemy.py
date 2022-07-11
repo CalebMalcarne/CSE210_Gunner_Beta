@@ -19,6 +19,7 @@ class Enemy(Actor):
     #     self.difficulty = #difficulty will be set here and returned later 
     #     self.points = #points will be set here and returned later
     #     self.hitpoints = 50
+    '''pay no attention to the code above this line, that was written during class'''
 
     def __init__(self, body, image, debug = False):
 
@@ -27,6 +28,8 @@ class Enemy(Actor):
         self.size = random.randint(20,50)
         self._image = image
         self.hitpoints = random.randint(50,100)
+        self.color = self.get_color(self.hitpoints)
+        
 
         
     def get_body(self):
@@ -40,10 +43,19 @@ class Enemy(Actor):
         return self.size
 
     def set_hitpoints(self):
-        ''' for the hitpoints of the enemies'''
+        ''' for the hitpoints of the enemies(this will be the difficulty), this will be used to determine the color of the enemy
+        random number will be generated for the hitpoints of the enemies'''
         
         return self.hitpoints
 
+    def get_color(hitpoints):
+            color = (255,255,255) #white
+            if hitpoints > 50:
+                return color(0,255,0) #dark green
+            elif hitpoints > 20:
+                return color(255,255,0) #yellow
+            else:
+                return color(255,0,0) #red
 ''' if the enemy is hit by the gunner, the hitpoints will be reduced by the gunner's damage
 
 get in the director mindset''' 
