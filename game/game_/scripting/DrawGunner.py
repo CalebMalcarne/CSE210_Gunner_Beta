@@ -1,4 +1,3 @@
-from cv2 import line
 from game_.scripting.action import Action
 from game_.casting.color import Color
 from game_.casting.rectangle import Rectangle
