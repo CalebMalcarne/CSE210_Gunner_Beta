@@ -35,7 +35,10 @@ class drawgunner(Action):
 
     def execute(self, cast, script, callback):
         gunner = cast.get_first_actor(GUNNER_GROUP)
+        hp_text = cast.get_first_actor(GUNNER_HP_GROUP)
         body = gunner.get_body()
+
+        #hp_text
 
         if  gunner.is_debug():
             rectangle = Rectangle(body.get_position(), body.get_size())
