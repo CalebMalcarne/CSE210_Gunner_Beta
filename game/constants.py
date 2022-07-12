@@ -22,7 +22,7 @@ FIELD_LEFT = 0
 FIELD_RIGHT = SCREEN_WIDTH
 
 # FONT
-FONT_FILE = "game/assets/fonts/zorque.otf"
+FONT_FILE = "game/assets/fonts/pixel.ttf"
 FONT_SMALL = 32
 FONT_LARGE = 48
 
