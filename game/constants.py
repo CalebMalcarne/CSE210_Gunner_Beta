@@ -22,7 +22,7 @@ FIELD_LEFT = 0
 FIELD_RIGHT = SCREEN_WIDTH
 
 # FONT
-FONT_FILE = "batter/assets/fonts/zorque.otf"
+FONT_FILE = "game/assets/fonts/pixel.ttf"
 FONT_SMALL = 32
 FONT_LARGE = 48
 
@@ -94,6 +94,7 @@ SCORE_FORMAT = "SCORE: {}"
 GUNNER_GROUP = "gunner_group"
 TEST_IMAGE = "game/assets/images/blue.png"
 GUNNER_HP_GROUP = "gunner_hp"
+GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
 
 # RACKET
 RACKET_GROUP = "rackets"

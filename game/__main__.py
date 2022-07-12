@@ -15,13 +15,16 @@ from game_.services.raylib.raylib_audio_service import RaylibAudioService
 from game_.services.raylib.raylib_video_service import RaylibVideoService
 from game_.services.raylib.raylib_keyboard_service import RaylibKeyboardService
 from game_.services.raylib.raylib_mouse_service import RaylibMouseService
+from game_.scripting.draw_hp import DrawHPAction
 from game_.casting.rectangle import Rectangle
 from game_.casting.gunner import Gunner
 from game_.casting.body import Body
 from game_.casting.image import Image
+from game_.casting.text import Text
+from game_.casting.label import Label
 from game_.scripting.DrawGunner import drawgunner
 
-def testObjs(cast):
+def init_Gunner(cast):
     x = SCREEN_WIDTH / 4
     y = SCREEN_HEIGHT / 4
     position = Point(x,y)
@@ -30,7 +33,14 @@ def testObjs(cast):
     body = Body(position, size, velocity)
     image = Image(TEST_IMAGE)
     gunner = Gunner(body, image, False)
-    cast.add_actor(GUNNER_GROUP,gunner)   
+    cast.add_actor(GUNNER_GROUP,gunner)
+
+    message = 100
+    text = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
+    text_position = Point(CENTER_X, CENTER_Y)
+    label = Label(text, text_position)
+    cast.add_actor(GUNNER_HP_GROUP, label)
+
 
 def main():
 
@@ -39,11 +49,12 @@ def main():
     video_service = RaylibVideoService()
     keyboard_service = RaylibKeyboardService()
     mouse_service = RaylibMouseService()
+    audio_service = RaylibAudioService()
     # TODO: create any other services we need
 
     # create the cast and actors we need
     cast = Cast()
-    testObjs(cast)
+    init_Gunner(cast)
 
     
     # TODO: create any actors that we need
@@ -57,7 +68,7 @@ def main():
    
     # TODO: create any input phase actions
     # TODO: create any update phase actions
-    controll_gunner = ControllGunner(mouse_service, video_service)
+    controll_gunner = ControllGunner(mouse_service, video_service, audio_service)
 
     start_drawing_action = StartDrawingAction(video_service)
     draw_test = drawgunner(video_service, mouse_service)
@@ -65,6 +76,7 @@ def main():
     end_drawing_action = EndDrawingAction(video_service)
     unload_assets_action = UnloadAssetsAction(audio_service, video_service)
     release_devices_action = ReleaseDevicesAction(audio_service, video_service)
+    draw_hp = DrawHPAction(video_service)
     
     script.add_action(INITIALIZE, initialize_devices_action)
     script.add_action(LOAD, load_assets_action)
@@ -73,6 +85,7 @@ def main():
     # TODO: add any update phase actions
     script.add_action(OUTPUT, start_drawing_action)
     script.add_action(OUTPUT, draw_test)
+    script.add_action(OUTPUT, draw_hp)
     # TODO: add any other output phase actions
     script.add_action(OUTPUT, end_drawing_action)
     script.add_action(UNLOAD, unload_assets_action)
