@@ -52,7 +52,7 @@ class RaylibVideoService(VideoService):
         filepath = text.get_fontfile()
         # fixed os dependent filepath
         filepath = str(pathlib.Path(filepath))
-        value = text.get_value()
+        value = str(text.get_value())
         size = text.get_size()
         spacing = 0
         alignment = text.get_alignment()

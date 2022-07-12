@@ -14,4 +14,5 @@ class DrawHPAction(Action):
         health = gunner.get_health()
         text.set_value(health)
         position = gunner_hp.get_position()
+        print(text.get_value())
         self._video_service.draw_text(text, position)
