@@ -13,11 +13,7 @@ class drawgunner(Action):
         self._mouse_service = mouse_service
         self._video_service = video_service
         self._line_color = WHITE
-        
-    def shoot(self):
-        self.set_Line_Color(SHOOT)
-        time.sleep(.5)
-        self.set_Line_Color(WHITE)
+    
 
     def draw_Lines(self, C, body):
         position = body.get_position()
@@ -35,6 +31,10 @@ class drawgunner(Action):
 
     def execute(self, cast, script, callback):
         gunner = cast.get_first_actor(GUNNER_GROUP)
+        #hp_label = cast.get_first_actor(GUNNER_HP_GROUP)
+        #hp_text = hp_label.get_text()
+        #hp_text.set_value(gunner.get_health())
+
         body = gunner.get_body()
 
         if  gunner.is_debug():
