@@ -6,6 +6,8 @@ class Gunner(Actor):
 
     def __init__(self, body, image, debug = False):
 
+        self.shoot = 0
+
         super().__init__(debug)
         self._body = body
         self._image = image

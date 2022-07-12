@@ -1,5 +1,9 @@
 from constants import *
 from game_.scripting.action import Action
+from game_.scripting.DrawGunner import drawgunner
+import time
+
+SHOOT = (0,218,255,255)
 
 class ControllGunner(Action):
     def __init__(self, mouse_service, video_service):
@@ -11,7 +15,7 @@ class ControllGunner(Action):
         position = self._mouse_service.get_coordinates()
         body = gunner.get_body()
         self._mouse_service.hide_cursor()
-
         body.set_position(position)
 
-    
+        if(self._mouse_service.is_button_released("left")):
+            gunner.shoot = 1

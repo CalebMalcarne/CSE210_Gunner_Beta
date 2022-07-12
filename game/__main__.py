@@ -60,7 +60,7 @@ def main():
     controll_gunner = ControllGunner(mouse_service, video_service)
 
     start_drawing_action = StartDrawingAction(video_service)
-    draw_test = drawgunner(video_service)
+    draw_test = drawgunner(video_service, mouse_service)
     # TODO: create any other output phase actions
     end_drawing_action = EndDrawingAction(video_service)
     unload_assets_action = UnloadAssetsAction(audio_service, video_service)
