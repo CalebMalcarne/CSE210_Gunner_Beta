@@ -9,6 +9,7 @@ class Gunner(Actor):
         self.shoot = 0
         self._health = 100
         self._wepon_damage = 5
+        self._enemys_killed = 0
 
         super().__init__(debug)
         self._body = body
@@ -23,6 +24,9 @@ class Gunner(Actor):
     def add_wepon_damage(self, damage):
         self._wepon_damage += damage
     
+    def add_kill(self, kill):
+        self._enemys_killed += kill
+    
     #-----------------------------------#
     def set_health(self, health):
         self.health = health
@@ -30,7 +34,13 @@ class Gunner(Actor):
     def set_wepon_damage(self, damage):
         self._wepon_damage = damage
 
+    def set_kills(self, kills):
+        self._enemys_killed = kills
+
     #-----------------------------------#
+    def get_killed(self):
+        return self._enemys_killed
+
     def get_health(self):
         return self._health
     
