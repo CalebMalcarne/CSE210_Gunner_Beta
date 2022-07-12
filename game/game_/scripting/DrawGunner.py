@@ -34,7 +34,7 @@ class drawgunner(Action):
         self._line_color = line_color
 
     def execute(self, cast, script, callback):
-        gunner = cast.get_first_actor(TEST_GROUP)
+        gunner = cast.get_first_actor(GUNNER_GROUP)
         body = gunner.get_body()
 
         if  gunner.is_debug():

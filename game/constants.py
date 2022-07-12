@@ -90,12 +90,10 @@ LEVEL_FORMAT = "LEVEL: {}"
 LIVES_FORMAT = "LIVES: {}"
 SCORE_FORMAT = "SCORE: {}"
 
-# BALL
-TEST_GROUP = "test"
+# GUNNER
+GUNNER_GROUP = "gunner_group"
 TEST_IMAGE = "game/assets/images/blue.png"
-BALL_WIDTH = 28
-BALL_HEIGHT = 28
-BALL_VELOCITY = 6
+GUNNER_HP_GROUP = "gunner_hp"
 
 # RACKET
 RACKET_GROUP = "rackets"

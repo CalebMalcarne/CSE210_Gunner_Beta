@@ -29,8 +29,8 @@ def testObjs(cast):
     velocity = Point(0,0)
     body = Body(position, size, velocity)
     image = Image(TEST_IMAGE)
-    test = Gunner(body, image, False)
-    cast.add_actor(TEST_GROUP,test)   
+    gunner = Gunner(body, image, False)
+    cast.add_actor(GUNNER_GROUP,gunner)   
 
 def main():
 
