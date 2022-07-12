@@ -71,7 +71,7 @@ def main():
     controll_gunner = ControllGunner(mouse_service, video_service, audio_service)
 
     start_drawing_action = StartDrawingAction(video_service)
-    draw_test = drawgunner(video_service, mouse_service)
+    draw_gunner = drawgunner(video_service, mouse_service)
     # TODO: create any other output phase actions
     end_drawing_action = EndDrawingAction(video_service)
     unload_assets_action = UnloadAssetsAction(audio_service, video_service)
@@ -84,7 +84,7 @@ def main():
     script.add_action(INPUT, controll_gunner)
     # TODO: add any update phase actions
     script.add_action(OUTPUT, start_drawing_action)
-    script.add_action(OUTPUT, draw_test)
+    script.add_action(OUTPUT, draw_gunner)
     script.add_action(OUTPUT, draw_hp)
     # TODO: add any other output phase actions
     script.add_action(OUTPUT, end_drawing_action)
