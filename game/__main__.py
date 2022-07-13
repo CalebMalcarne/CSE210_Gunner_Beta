@@ -27,6 +27,7 @@ from game_.scripting.draw_boss import DrawBoss
 from game_.scripting.control_boss import ControlBoss
 
 from game_.casting.enemy import Enemy
+from game_.scripting.control_enemy import ControlEnemy
 
 from game_.casting.body import Body
 from game_.casting.image import Image
@@ -61,7 +62,7 @@ def init_Boss(cast):
     boss = Boss(body, image, False)
     cast.add_actor(BOSS_GROUP, boss)
 
-def init_enimys(cast):
+def init_enemys(cast):
     x = 0
     y = 0 
     for i in range(5):
@@ -75,8 +76,8 @@ def init_enimys(cast):
         body = Body(position, size, velocity)
         image = Image(TEST_IMAGE)
         enemy = Enemy(body, image, False)
+        cast.add_actor(ENEMEY_GROUP,enemy)
 
-        enemy = Enemy(position,)
 def main():
 
     # create the services that we need
@@ -90,7 +91,7 @@ def main():
     # create the cast and actors we need
     cast = Cast()
     init_Gunner(cast)
-
+    init_enemys(cast)
     
     # TODO: create any actors that we need
     # TODO: add the actors to tche cast in the appropriate group

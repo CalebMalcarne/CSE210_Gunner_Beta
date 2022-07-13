@@ -28,7 +28,7 @@ class Enemy(Actor):
         self.size = random.randint(20,50)
         self._image = image
         self.hitpoints = random.randint(50,100)
-        self.color = self.get_color(self.hitpoints)
+        #self.color = self.get_color(self.hitpoints)
         
 
         
