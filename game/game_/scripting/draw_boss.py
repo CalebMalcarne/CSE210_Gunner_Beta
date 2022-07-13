@@ -1,9 +1,9 @@
 import random
 
-#from casting.boss import Boss // you use the cast.get_actors(GROUP) to do this
+# from casting.boss import Boss // you use the cast.get_actors(GROUP) to do this
 from game_.scripting.action import Action 
 from constants import *
-#draws the boss and everything to do with the boss 
+# draws the boss and everything to do with the boss 
 
 
 class DrawBoss(Action):
