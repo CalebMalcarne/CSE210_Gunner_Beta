@@ -24,4 +24,4 @@ class DrawBoss():
         boss_color = Boss.boss_color()
 
 
-        draw_rectangle(boss_x, boss_y, boss_width, boss_height)
+        draw_rectangle(boss_x, boss_y, boss_width, boss_height, boss_color)
