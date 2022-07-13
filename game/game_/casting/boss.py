@@ -13,11 +13,11 @@ class Boss(Enemy):
         #depending on the health, the color will change 
         boss_color = (250,0,0)
         if self.hitpoints > (self.hitpoints/3)*2:
-            return boss_color(0,0,0) #decide on a color we want 
+            return boss_color(250,0,0) #decide on a color we want 
         elif self.hitpoints > (self.hitpoints/3):
-            return boss_color(0,0,0)#decide on a color we want 
+            return boss_color(150,0,0)#decide on a color we want 
         elif self.hitpoints > 0:
-            return boss_color(0,0,0)#decide on a color we want 
+            return boss_color(50,0,0)#decide on a color we want 
         else:
             return boss_color
 
