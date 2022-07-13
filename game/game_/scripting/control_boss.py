@@ -9,4 +9,3 @@ class ControlBoss():
         
     def execute(self, cast, script, callback):
         self._position += self.velocity
-
