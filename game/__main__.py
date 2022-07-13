@@ -1,4 +1,5 @@
 from constants import *
+import random
 from game_.scripting.end_drawing_action import EndDrawingAction
 from game_.scripting.initialize_devices_action import InitializeDevicesAction
 from game_.scripting.load_assets_action import LoadAssetsAction
@@ -24,6 +25,8 @@ from game_.scripting.draw_hp import DrawHPAction
 from game_.casting.boss import Boss
 from game_.scripting.draw_boss import DrawBoss
 from game_.scripting.control_boss import ControlBoss
+
+from game_.casting.enemy import Enemy
 
 from game_.casting.body import Body
 from game_.casting.image import Image
@@ -59,8 +62,21 @@ def init_Boss(cast):
     cast.add_actor(BOSS_GROUP, boss)
 
 def init_enimys(cast):
-    pass
+    x = 0
+    y = 0 
+    for i in range(5):
+        x = random.randint(1, 640)
+        y = 480
+        position = Point(x, y)
+        vx = 0
+        vy = 1
+        velocity = Point(vx,vy)
+        size = (10,10)
+        body = Body(position, size, velocity)
+        image = Image(TEST_IMAGE)
+        enemy = Enemy(body, image, False)
 
+        enemy = Enemy(position,)
 def main():
 
     # create the services that we need
