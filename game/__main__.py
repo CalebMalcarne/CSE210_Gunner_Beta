@@ -15,14 +15,20 @@ from game_.services.raylib.raylib_audio_service import RaylibAudioService
 from game_.services.raylib.raylib_video_service import RaylibVideoService
 from game_.services.raylib.raylib_keyboard_service import RaylibKeyboardService
 from game_.services.raylib.raylib_mouse_service import RaylibMouseService
-from game_.scripting.draw_hp import DrawHPAction
-from game_.casting.rectangle import Rectangle
+
 from game_.casting.gunner import Gunner
+from game_.scripting.DrawGunner import drawgunner
+from game_.scripting.controll_gunner import ControllGunner
+from game_.scripting.draw_hp import DrawHPAction
+
+from game_.casting.boss import Boss
+from game_.scripting.draw_boss import DrawBoss
+from game_.scripting.control_boss import ControlBoss
+
 from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.casting.text import Text
 from game_.casting.label import Label
-from game_.scripting.DrawGunner import drawgunner
 
 def init_Gunner(cast):
     x = SCREEN_WIDTH / 4
@@ -42,7 +48,15 @@ def init_Gunner(cast):
     cast.add_actor(GUNNER_HP_GROUP, label)
 
 def init_Boss(cast):
-    pass
+    x = SCREEN_WIDTH / 4
+    y = SCREEN_HEIGHT / 4
+    position = Point(x,y)
+    size = Point(20,20)
+    velocity = Point(0,0)
+    body = Body(position, size, velocity)
+    image = Image(TEST_IMAGE)
+    boss = Boss(body, image, False)
+    cast.add_actor(BOSS_GROUP, boss)
 
 def init_enimys(cast):
     pass

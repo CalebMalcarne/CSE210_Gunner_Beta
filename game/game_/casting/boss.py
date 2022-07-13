@@ -1,13 +1,13 @@
-from casting.enemy import Enemy
-
+from game_.casting.enemy import Enemy
 
 class Boss(Enemy):
 
     def __init__(self, body, image):
 
         self._body = body
-        self.size = (80,70)
         self._image = image
+
+        self.size = (80,70)
         self.hitpoints = Enemy.set_hitpoints * 3 #3 times stronger than a normal enemy
         self.color = self.boss_color(self.hitpoints)
 
