@@ -31,9 +31,6 @@ class drawgunner(Action):
 
     def execute(self, cast, script, callback):
         gunner = cast.get_first_actor(GUNNER_GROUP)
-        #hp_label = cast.get_first_actor(GUNNER_HP_GROUP)
-        #hp_text = hp_label.get_text()
-        #hp_text.set_value(gunner.get_health())
 
         body = gunner.get_body()
 
