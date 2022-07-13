@@ -41,6 +41,11 @@ def init_Gunner(cast):
     label = Label(text, text_position)
     cast.add_actor(GUNNER_HP_GROUP, label)
 
+def init_Boss(cast):
+    pass
+
+def init_enimys(cast):
+    pass
 
 def main():
 

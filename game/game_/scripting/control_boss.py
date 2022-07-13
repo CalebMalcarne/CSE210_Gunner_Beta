@@ -4,7 +4,7 @@ from casting.boss import Boss
 class ControlBoss():
     boss = Boss()
 
-    def move_boss(boss):
+    def execute(self, cast, script, callback):
 
 
 

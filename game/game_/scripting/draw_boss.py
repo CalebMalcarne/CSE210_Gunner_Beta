@@ -12,7 +12,8 @@ class DrawBoss():
         self.velocity = 1
 
 
-    def draw_body(self):
+    def execute(self, cast, script, callback):
+        
 
         pass 
 
