@@ -6,12 +6,20 @@ class draw_enemy(Enemy):
    def __init__(self, enemy, debug = False):
     self._enemy = enemy
     self._debug = debug
-    self._video_service = RaylibVideoService()
-    self._video_service.set_title("Enemy")
-    self._video_service.set_width(640)
-    self._video_service.set_height(480)
-    self._video_service.health_bar(self._enemy.get_hitpoints())
-    self._video_service.health_bar_size(self._enemy.get_size())
+     
+
+
+    def _execute(self, cast, script, callback):
+        self._video_service = RaylibVideoService()
+        self._video_service.set_title("Enemy")
+        self._video_service.set_width(640)
+        self._video_service.set_height(480)
+        self._video_service.health_bar(self._enemy.get_hitpoints())
+        self._video_service.health_bar_size(self._enemy.get_size())
+        self.points = self._enemy.get_points()
+
+    
+
     
 
 
