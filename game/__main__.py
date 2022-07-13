@@ -37,7 +37,7 @@ def init_Gunner(cast):
 
     message = 100
     text = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
-    text_position = Point(CENTER_X, CENTER_Y)
+    text_position = Point(320, 440)
     label = Label(text, text_position)
     cast.add_actor(GUNNER_HP_GROUP, label)
 
