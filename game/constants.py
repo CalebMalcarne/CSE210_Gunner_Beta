@@ -6,7 +6,7 @@ from game_.casting.color import Color
 # -------------------------------------------------------------------------------------------------- 
 
 # GAME
-GAME_NAME = "Batter"
+GAME_NAME = "Gunner"
 FRAME_RATE = 60
 
 # SCREEN
@@ -37,9 +37,9 @@ ALIGN_LEFT = 1
 ALIGN_RIGHT = 2
 
 # COLORS
-BLACK = Color(0, 0, 0)
-WHITE = Color(255, 255, 255)
-PURPLE = Color(255, 0, 255)
+BLACK = Color(0, 0, 0, 0)
+WHITE = Color(255, 255, 255, 255)
+PURPLE = Color(255, 0, 255, 255)
 
 # KEYS
 LEFT = "left"
@@ -47,13 +47,6 @@ RIGHT = "right"
 SPACE = "space"
 ENTER = "enter"
 PAUSE = "p"
-
-# SCENES
-NEW_GAME = 0
-TRY_AGAIN = 1
-NEXT_LEVEL = 2
-IN_PLAY = 3
-GAME_OVER = 4
 
 # LEVELS
 LEVEL_FILE = "batter/assets/data/level-{:03}.txt"
@@ -81,45 +74,20 @@ STATS_GROUP = "stats"
 DEFAULT_LIVES = 3
 MAXIMUM_LIVES = 5
 
-# HUD
-HUD_MARGIN = 15
-LEVEL_GROUP = "level"
-LIVES_GROUP = "lives"
-SCORE_GROUP = "score"
-LEVEL_FORMAT = "LEVEL: {}"
-LIVES_FORMAT = "LIVES: {}"
-SCORE_FORMAT = "SCORE: {}"
-
 # GUNNER
 GUNNER_GROUP = "gunner_group"
 TEST_IMAGE = "game/assets/images/blue.png"
 GUNNER_HP_GROUP = "gunner_hp"
 GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
 
-# RACKET
-RACKET_GROUP = "rackets"
-RACKET_IMAGES = [f"batter/assets/images/{n:03}.png" for n in range(100, 103)]
-RACKET_WIDTH = 106
-RACKET_HEIGHT = 28
-RACKET_RATE = 6
-RACKET_VELOCITY = 7
+#BOSS
+BOSS_GROUP = "boss"
+TEST_IMAGE = "game/assets/images/blue.png"
+BOSS_HP_GROUP = "boss_hp"
+BOSS_SOUND = "game/assets/sounds/"
 
-# BRICK
-BRICK_GROUP = "bricks"
-BRICK_IMAGES = {
-    "b": [f"batter/assets/images/{i:03}.png" for i in range(10,19)],
-    "g": [f"batter/assets/images/{i:03}.png" for i in range(20,29)],
-    "p": [f"batter/assets/images/{i:03}.png" for i in range(30,39)],
-    "y": [f"batter/assets/images/{i:03}.png" for i in range(40,49)]
-}
-BRICK_WIDTH = 80
-BRICK_HEIGHT = 28
-BRICK_DELAY = 0.5
-BRICK_RATE = 4
-BRICK_POINTS = 50
+#enemys
+ENEMEY_GROUP = "enemys"
+ENEMEY_IMAGE = "game/assets/images"
+ENEMY_SOUND = "game/assets/sounds/" 
 
-# DIALOG
-DIALOG_GROUP = "dialogs"
-ENTER_TO_START = "PRESS ENTER TO START"
-PREP_TO_LAUNCH = "PREPARING TO LAUNCH"
-WAS_GOOD_GAME = "GAME OVER"
