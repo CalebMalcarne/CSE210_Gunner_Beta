@@ -86,3 +86,7 @@ ENEMEY_GROUP = "enemys"
 ENEMEY_IMAGE = "game/assets/images"
 ENEMY_SOUND = "game/assets/sounds/" 
 
+#BACKGROUND
+STAR_GROUP = "stars"
+STAR_ANIMATION = [f"game/assets/images/stars/Stars{n}.png" for n in range(1,7)]
+
