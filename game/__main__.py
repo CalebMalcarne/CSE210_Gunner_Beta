@@ -121,6 +121,8 @@ def main():
     control_enemy = ControlEnemy()
     draw_enemy = DrawEnemy(video_service)
     enemy_spawning = EnemySpawning(mouse_service, physics_service, audio_service)
+    control_boss = ControlBoss()
+    draw_boss = DrawBoss(video_service)
     
     # TODO: create any other output phase actions
     start_drawing_action = StartDrawingAction(video_service)
