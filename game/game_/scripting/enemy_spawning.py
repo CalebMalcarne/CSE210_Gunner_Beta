@@ -26,7 +26,7 @@ class EnemySpawning(Action):
 
 
     def execute(self, cast, script, callback):
-        self.enemy_amounts = math.floor(5 + self.difficulty_level)
+        self.enemy_amounts = math.floor(4 + self.difficulty_level)
         gunner = cast.get_first_actor(GUNNER_GROUP)
         enemys = cast.get_actors(ENEMEY_GROUP)
         
