@@ -20,8 +20,8 @@ class drawgunner(Action):
         line_start_x = position.get_x()
         line_start_y = position.get_y()
 
-        line_end_x_a = 640
-        line_end_y_a = 480
+        line_end_x_a = 1080
+        line_end_y_a = 800
         line_end_x_b = 0
         self._video_service.draw_line(line_start_x, line_start_y, line_end_x_a, line_end_y_a, C, C)
         self._video_service.draw_line(line_start_x, line_start_y, line_end_x_b, line_end_y_a, C, C)

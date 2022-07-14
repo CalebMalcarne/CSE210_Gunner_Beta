@@ -51,13 +51,13 @@ def init_Gunner(cast):
 
     message = 100
     hp = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
-    text_position = Point(340, 440)
+    text_position = Point(550, 740)
     label = Label(hp, text_position)
     cast.add_actor(GUNNER_HP_GROUP, label)
     
     message = 0
     points = Text(message, FONT_FILE, 20, ALIGN_CENTER)
-    text_position = Point(380, 10)
+    text_position = Point(590, 10)
     label = Label(points, text_position)
     cast.add_actor(GUNNER_POINTS_GROUP, label)
     
@@ -76,7 +76,7 @@ def init_Boss(cast):
 
 def init_enemys(cast):
     for i in range(5):
-        x = random.randint(10, 590)
+        x = random.randint(10, 1050)
         y = random.randint(-400, -50)
         position = Point(x, y)
         vx = 0
@@ -120,7 +120,7 @@ def main():
 
     control_enemy = ControlEnemy()
     draw_enemy = DrawEnemy(video_service)
-    enemy_spawning = EnemySpawning(mouse_service, physics_service)
+    enemy_spawning = EnemySpawning(mouse_service, physics_service, audio_service)
     
     # TODO: create any other output phase actions
     start_drawing_action = StartDrawingAction(video_service)

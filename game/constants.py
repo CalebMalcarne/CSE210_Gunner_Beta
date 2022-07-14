@@ -27,8 +27,8 @@ FONT_SMALL = 25
 FONT_LARGE = 30
 
 # SOUND
-LASER_SOUND = "game/assets/sound/laser2.mp3"
-EXPLOSION = "game/assets/sound/explosion1.mp3"
+LASER_SOUND = "game/assets/sounds/laser2.mp3"
+EXPLOSION = "game/assets/sounds/explosion1.mp3"
 
 # TEXT
 ALIGN_CENTER = 0

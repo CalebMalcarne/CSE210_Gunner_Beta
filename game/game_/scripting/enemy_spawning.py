@@ -7,16 +7,19 @@ from game_.casting.point import Point
 
 from game_.casting.body import Body
 from game_.casting.image import Image
+from game_.casting.sound import Sound
 
 class EnemySpawning(Action):
 
-    def __init__(self, mouse_service, physics_service):
+    def __init__(self, mouse_service, physics_service, audio_service):
         self._physics_service = physics_service
         self._mouse_service = mouse_service
+        self._audio_service = audio_service
+        
         self.delay = 0
         self.enemies_spawned = 0
         self.boss_spawn_threshold = 25
-        self.enemy_amounts = 5
+        self.enemy_amounts = 8
 
     def execute(self, cast, script, callback):
         gunner = cast.get_first_actor(GUNNER_GROUP)
@@ -33,12 +36,13 @@ class EnemySpawning(Action):
             enemy_position = enemy_body.get_position()
             enemy_y = enemy_position.get_y()
             
-            if enemy_y > 480:
+            if enemy_y > 800:
                 cast.remove_actor(ENEMEY_GROUP, enemy)
                 gunner.take_damage(5)
                   
             if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
                 if(self._physics_service.has_collided(gunner_body, enemy_body)):
+                    self._audio_service.play_sound(Sound(EXPLOSION))
                     cast.remove_actor(ENEMEY_GROUP, enemy)
                     gunner.add_points(enemy_point_val)
                     
@@ -47,11 +51,11 @@ class EnemySpawning(Action):
 
     def spawn_enemy(self, amount_of_enemies, cast):
         for i in range(amount_of_enemies):
-            x = random.randint(10, 590)
+            x = random.randint(10, 1050)
             y = random.randint(-400, -50)
             position = Point(x, y)
             vx = 0
-            vy = random.randint(2,4)
+            vy = random.randint(3,6)
             velocity = Point(vx,vy)
             size = Point(40,40)
             body = Body(position, size, velocity)

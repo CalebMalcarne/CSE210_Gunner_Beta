@@ -19,9 +19,11 @@ class ControllGunner(Action):
         body = gunner.get_body()
         self._mouse_service.hide_cursor()
         body.set_position(position)
+        
+        if(self._mouse_service.is_button_down("left")):
+            self._audio_service.play_sound(Sound(LASER_SOUND))
 
         if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
-            self._audio_service.play_sound(Sound(GUNNER_SOUND))
             gunner.shoot = 1
             self.delay += 1
             if self.delay == 12:
