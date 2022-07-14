@@ -1,6 +1,6 @@
 from constants import *
 from game_.scripting.action import Action
-from game_.scripting.DrawGunner import drawgunner
+from game_.casting.sound import Sound
 
 
 SHOOT = (0,218,255,255)
@@ -21,9 +21,9 @@ class ControllGunner(Action):
         body.set_position(position)
 
         if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
+            self._audio_service.play_sound(Sound(GUNNER_SOUND))
             gunner.shoot = 1
             self.delay += 1
             if self.delay == 12:
-                #self._audio_service.play_sound(fire_sound)
                 self.delay = 0
                 gunner.shoot = 0
