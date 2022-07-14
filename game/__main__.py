@@ -22,7 +22,7 @@ from game_.services.raylib.raylib_physics_service import RaylibPhysicsService
 from game_.casting.gunner import Gunner
 from game_.scripting.DrawGunner import drawgunner
 from game_.scripting.controll_gunner import ControllGunner
-from game_.scripting.draw_hp import DrawHPAction
+from game_.scripting.draw_stats import DrawStats
 
 from game_.casting.boss import Boss
 from game_.scripting.draw_boss import DrawBoss
@@ -50,16 +50,24 @@ def init_Gunner(cast):
     cast.add_actor(GUNNER_GROUP,gunner)
 
     message = 100
-    text = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
-    text_position = Point(320, 440)
-    label = Label(text, text_position)
+    hp = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
+    text_position = Point(340, 440)
+    label = Label(hp, text_position)
     cast.add_actor(GUNNER_HP_GROUP, label)
+    
+    message = 0
+    points = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
+    text_position = Point(320, 100)
+    label = Label(points, text_position)
+    cast.add_actor(GUNNER_POINTS_GROUP, label)
+    
+    
 
 def init_Boss(cast):
     x = SCREEN_WIDTH / 4
     y = SCREEN_HEIGHT / 4
     position = Point(x,y)
-    size = Point(20,20)
+    size = Point(40,40)
     velocity = Point(0,0)
     body = Body(position, size, velocity)
     image = Image(TEST_IMAGE)
@@ -69,12 +77,12 @@ def init_Boss(cast):
 def init_enemys(cast):
     for i in range(5):
         x = random.randint(50, 600)
-        y = -50
+        y = random.randint(-400, -50)
         position = Point(x, y)
         vx = 0
-        vy = 2
+        vy = random.randint(2,4)
         velocity = Point(vx,vy)
-        size = (10,10)
+        size = Point(40,40)
         body = Body(position, size, velocity)
         image = Image(TEST_IMAGE)
         enemy = Enemy(body, image, False)
@@ -119,7 +127,7 @@ def main():
     end_drawing_action = EndDrawingAction(video_service)
     unload_assets_action = UnloadAssetsAction(audio_service, video_service)
     release_devices_action = ReleaseDevicesAction(audio_service, video_service)
-    draw_hp = DrawHPAction(video_service)
+    draw_stats = DrawStats(video_service)
     
     script.add_action(INITIALIZE, initialize_devices_action)
     script.add_action(LOAD, load_assets_action)
@@ -130,7 +138,7 @@ def main():
     script.add_action(OUTPUT, draw_enemy)
     script.add_action(OUTPUT, start_drawing_action)
     script.add_action(OUTPUT, draw_gunner)
-    script.add_action(OUTPUT, draw_hp)
+    script.add_action(OUTPUT, draw_stats)
     script.add_action(OUTPUT, enemy_spawning)
     # TODO: add any other output phase actions
     script.add_action(OUTPUT, end_drawing_action)

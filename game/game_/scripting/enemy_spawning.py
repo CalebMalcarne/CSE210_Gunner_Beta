@@ -11,41 +11,42 @@ from game_.casting.image import Image
 class EnemySpawning(Action):
 
     def __init__(self, mouse_service, physics_service):
-        self.physics_service = physics_service
+        self._physics_service = physics_service
         self._mouse_service = mouse_service
-        super().__init__(False)
+        self.delay = 0
+        #super().__init__(False)
         self.enemies_spawned = 0
         self.boss_spawn_threshold = 25
 
     def execute(self,cast, script, callback):
         gunner = cast.get_first_actor(GUNNER_GROUP)
-        gunner_hits = self.gunner.get_points
+        #gunner_hits = self.gunner.get_points
         enemys = cast.get_actors(ENEMEY_GROUP)
 
         for enemy in enemys:
-            body = enemy.get_body()
-            position = body.get_position()
+            enemy_body = enemy.get_body()
+            gunner_body = gunner.get_body()
+            enemy_position = enemy_body.get_position()
 
-        if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
-            self.delay += 1
-            if self.delay == 12:
-                #self._audio_service.play_sound(fire_sound)
-                self.delay = 0
-
+            if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
+                if(self._physics_service.has_collided(gunner_body, enemy_body)):
+                    cast.remove_actor(ENEMEY_GROUP, enemy)
 
 
-    def spawn_enemy(self, amount_of_enemies):
+
+    def spawn_enemy(self, amount_of_enemies, cast):
         for i in range(amount_of_enemies):
-            x = random.randint(1, 640)
-            y = 480
+            x = random.randint(50, 600)
+            y = random.randint(-400, -50)
             position = Point(x, y)
             vx = 0
-            vy = 1
+            vy = random.randint(2,4)
             velocity = Point(vx,vy)
-            size = (10,10)
+            size = Point(10,10)
             body = Body(position, size, velocity)
             image = Image(TEST_IMAGE)
             enemy = Enemy(body, image, False)
+            cast.add_actor(ENEMEY_GROUP,enemy)
 
             self.enemies_spawned += 1
     

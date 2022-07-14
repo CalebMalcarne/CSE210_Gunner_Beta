@@ -27,11 +27,17 @@ class Enemy(Actor):
         self._body = body
         self.size = random.randint(20,50)
         self._image = image
+        self._point_value = 50
         self.hitpoints = random.randint(50,100)
         #self.color = self.get_color(self.hitpoints)
         
 
-        
+    def get_points(self):
+        return self._point_value
+    
+    def set_points(self, points):
+        self._point_value = points
+    
     def get_body(self):
         return self._body
 

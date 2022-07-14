@@ -23,13 +23,11 @@ FIELD_RIGHT = SCREEN_WIDTH
 
 # FONT
 FONT_FILE = "game/assets/fonts/pixel.ttf"
-FONT_SMALL = 32
-FONT_LARGE = 48
+FONT_SMALL = 25
+FONT_LARGE = 30
 
 # SOUND
-BOUNCE_SOUND = "batter/assets/sounds/boing.wav"
-WELCOME_SOUND = "batter/assets/sounds/start.wav"
-OVER_SOUND = "batter/assets/sounds/over.wav"
+
 
 # TEXT
 ALIGN_CENTER = 0
@@ -69,15 +67,11 @@ RELEASE = 6
 # CASTING CONSTANTS
 # -------------------------------------------------------------------------------------------------- 
 
-# STATS
-STATS_GROUP = "stats"
-DEFAULT_LIVES = 3
-MAXIMUM_LIVES = 5
-
 # GUNNER
 GUNNER_GROUP = "gunner_group"
 TEST_IMAGE = "game/assets/images/blue.png"
 GUNNER_HP_GROUP = "gunner_hp"
+GUNNER_POINTS_GROUP = "gunner_points"
 GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
 
 #BOSS
