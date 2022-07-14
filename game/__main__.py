@@ -42,6 +42,8 @@ from game_.casting.image import Image
 from game_.casting.text import Text
 from game_.casting.label import Label
 
+startGame = 1
+
 def init_Gunner(cast):
     x = SCREEN_WIDTH / 4
     y = SCREEN_HEIGHT / 4
@@ -147,22 +149,24 @@ def main():
     draw_stats = DrawStats(video_service)
     draw_stars = DrawStars(video_service)
     
-    script.add_action(INITIALIZE, initialize_devices_action)
-    script.add_action(LOAD, load_assets_action)
-    # TODO: add any input phase actions
-    script.add_action(INPUT, controll_gunner)
-    script.add_action(INPUT, control_enemy)
-    # TODO: add any update phase actions
-    script.add_action(OUTPUT, draw_stars)
-    script.add_action(OUTPUT, draw_enemy)
-    script.add_action(OUTPUT, start_drawing_action)
-    script.add_action(OUTPUT, draw_gunner)
-    script.add_action(OUTPUT, draw_stats)
-    script.add_action(OUTPUT, enemy_spawning)
-    # TODO: add any other output phase actions
-    script.add_action(OUTPUT, end_drawing_action)
-    script.add_action(UNLOAD, unload_assets_action)
-    script.add_action(RELEASE, release_devices_action)
+
+    if startGame == 1:
+        script.add_action(INITIALIZE, initialize_devices_action)
+        script.add_action(LOAD, load_assets_action)
+        # TODO: add any input phase actions
+        script.add_action(INPUT, controll_gunner)
+        script.add_action(INPUT, control_enemy)
+        # TODO: add any update phase actions
+        script.add_action(OUTPUT, draw_stars)
+        script.add_action(OUTPUT, draw_enemy)
+        script.add_action(OUTPUT, start_drawing_action)
+        script.add_action(OUTPUT, draw_gunner)
+        script.add_action(OUTPUT, draw_stats)
+        script.add_action(OUTPUT, enemy_spawning)
+        # TODO: add any other output phase actions
+        script.add_action(OUTPUT, end_drawing_action)
+        script.add_action(UNLOAD, unload_assets_action)
+        script.add_action(RELEASE, release_devices_action)
 
     # start the game
     director = Director(video_service)
