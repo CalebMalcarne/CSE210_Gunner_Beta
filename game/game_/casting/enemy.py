@@ -54,15 +54,7 @@ class Enemy(Actor):
         
         return self.hitpoints
 
-    def get_color(hitpoints):
-            color = (255,255,255) #white
-            if hitpoints > 50:
-                return color(0,255,0) #dark green
-            elif hitpoints > 20:
-                return color(255,255,0) #yellow
-            else:
-                return color(255,0,0) #red
 ''' if the enemy is hit by the gunner, the hitpoints will be reduced by the gunner's damage
 
-get in the director mindset''' 
+get in the director mindset'''
     
