@@ -14,23 +14,34 @@ class EnemySpawning(Action):
         self._physics_service = physics_service
         self._mouse_service = mouse_service
         self.delay = 0
-        #super().__init__(False)
         self.enemies_spawned = 0
         self.boss_spawn_threshold = 25
+        self.enemy_amounts = 5
 
-    def execute(self,cast, script, callback):
+    def execute(self, cast, script, callback):
         gunner = cast.get_first_actor(GUNNER_GROUP)
-        #gunner_hits = self.gunner.get_points
         enemys = cast.get_actors(ENEMEY_GROUP)
-
+        
+        if len(enemys) == 0:
+            self.spawn_enemy(self.enemy_amounts, cast)
+        
         for enemy in enemys:
             enemy_body = enemy.get_body()
             gunner_body = gunner.get_body()
+            enemy_point_val = enemy.get_points()
+            
             enemy_position = enemy_body.get_position()
-
+            enemy_y = enemy_position.get_y()
+            
+            if enemy_y > 480:
+                cast.remove_actor(ENEMEY_GROUP, enemy)
+                gunner.take_damage(5)
+                  
             if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
                 if(self._physics_service.has_collided(gunner_body, enemy_body)):
                     cast.remove_actor(ENEMEY_GROUP, enemy)
+                    gunner.add_points(enemy_point_val)
+                    
 
 
 
@@ -42,13 +53,14 @@ class EnemySpawning(Action):
             vx = 0
             vy = random.randint(2,4)
             velocity = Point(vx,vy)
-            size = Point(10,10)
+            size = Point(40,40)
             body = Body(position, size, velocity)
             image = Image(TEST_IMAGE)
             enemy = Enemy(body, image, False)
             cast.add_actor(ENEMEY_GROUP,enemy)
 
             self.enemies_spawned += 1
+        #self.enemy_amounts += 1
     
     def spawn_boss(self):
 

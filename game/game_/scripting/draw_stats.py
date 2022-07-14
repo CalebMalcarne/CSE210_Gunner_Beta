@@ -29,3 +29,4 @@ class DrawStats(Action):
         
     def execute(self, cast, script, callback):
         self.draw_HP(cast)
+        self.draw_Points(cast)

@@ -29,7 +29,7 @@ class Gunner(Actor):
         self._enemys_killed += kill
 
     def add_points(self, points):
-        self.points += points
+        self._points += points
     
     #-----------------------------------#
     def set_health(self, health):
@@ -42,7 +42,7 @@ class Gunner(Actor):
         self._enemys_killed = kills
 
     def set_points(self, points):
-        self.points = points
+        self._points = points
 
     #-----------------------------------#
     def get_killed(self):
