@@ -3,24 +3,12 @@ from game_.casting.enemy import Enemy
 class Boss(Enemy):
 
     def __init__(self, body, image):
-        super().__init__(body, image, False)
 
+        super().__init__(body, image, False)
         self.size = (80,70)
         self.hitpoints = Enemy.set_hitpoints * 3 #3 times stronger than a normal enemy
         self.color = self.boss_color(self.hitpoints)
-
-    def change_color(self):
-        #depending on the health, the color will change 
-        boss_color = (250,0,0)
-        if self.hitpoints > (self.hitpoints/3)*2:
-            return boss_color(250,0,0) #decide on a color we want 
-        elif self.hitpoints > (self.hitpoints/3):
-            return boss_color(150,0,0)#decide on a color we want 
-        elif self.hitpoints > 0:
-            return boss_color(50,0,0)#decide on a color we want 
-        else:
-            return boss_color
-
+        
     def should_spawn():
         # Once there have been 25 enemies then it will spawn the boss
         number_of_enemies = 0
