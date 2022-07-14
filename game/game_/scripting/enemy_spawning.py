@@ -47,7 +47,7 @@ class EnemySpawning(Action):
 
     def spawn_enemy(self, amount_of_enemies, cast):
         for i in range(amount_of_enemies):
-            x = random.randint(50, 600)
+            x = random.randint(10, 590)
             y = random.randint(-400, -50)
             position = Point(x, y)
             vx = 0
