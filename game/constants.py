@@ -77,7 +77,7 @@ GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
 
 #BOSS
 BOSS_GROUP = "boss"
-TEST_IMAGE = "game/assets/images/blue.png"
+TEST_IMAGE = "game/assets/images/Turtle.png"
 BOSS_HP_GROUP = "boss_hp"
 BOSS_SOUND = "game/assets/sounds/"
 
