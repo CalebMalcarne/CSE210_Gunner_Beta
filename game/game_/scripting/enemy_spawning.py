@@ -1,4 +1,5 @@
 import random
+import math
 from constants import *
 
 from game_.scripting.action import Action
@@ -20,11 +21,12 @@ class EnemySpawning(Action):
         self.delay = 0
         self.enemies_spawned = 0
         self.boss_spawn_threshold = 25
-        self.enemy_amounts = 8
+        self.difficulty_level = 0
+        self.enemy_amounts = 0
 
-        self.difficulty_level = 1
 
     def execute(self, cast, script, callback):
+        self.enemy_amounts = math.floor(5 + self.difficulty_level)
         gunner = cast.get_first_actor(GUNNER_GROUP)
         enemys = cast.get_actors(ENEMEY_GROUP)
         
@@ -74,7 +76,9 @@ class EnemySpawning(Action):
                 cast.add_actor(ENEMEY_GROUP,enemy)
 
                 self.enemies_spawned += 1
-        #self.enemy_amounts += 1
+            self.increase_difficulty(.1)
+            print(self.enemy_amounts)
+            print(self.difficulty_level)
     
     def spawn_boss(self):
 
@@ -86,5 +90,5 @@ class EnemySpawning(Action):
         else:
             return False
 
-    def increase_difficulty(self):
-        self.difficulty_level += 1
+    def increase_difficulty(self, amount):
+        self.difficulty_level += .1
