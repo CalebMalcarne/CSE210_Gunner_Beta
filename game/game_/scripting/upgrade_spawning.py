@@ -45,7 +45,7 @@ class UpgradeSpawning(Action):
         difficulty = gunner.get_diff()
         print(difficulty)
         
-        if self.delay == 200 - difficulty * 15:
+        if self.delay == 1800 - difficulty * 15:
             self.spawn_health_pack(cast)
             self.delay = 0;
         else:
