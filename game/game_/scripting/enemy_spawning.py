@@ -29,6 +29,7 @@ class EnemySpawning(Action):
         self.enemy_amounts = math.floor(4 + self.difficulty_level)
         gunner = cast.get_first_actor(GUNNER_GROUP)
         enemys = cast.get_actors(ENEMEY_GROUP)
+        gunner.set_diff(math.floor(self.difficulty_level))
         
         if len(enemys) == 0:
             self.spawn_enemy(self.enemy_amounts, cast)
@@ -77,6 +78,7 @@ class EnemySpawning(Action):
 
                 self.enemies_spawned += 1
             self.increase_difficulty(.1)
+            
             print(self.enemy_amounts)
             print(self.difficulty_level)
     
