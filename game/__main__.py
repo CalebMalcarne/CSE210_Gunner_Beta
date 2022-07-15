@@ -77,6 +77,7 @@ def init_Gunner(cast):
     
 
 def init_Background(cast):
+
     x = 0
     y = 0
     position = Point(x,y)

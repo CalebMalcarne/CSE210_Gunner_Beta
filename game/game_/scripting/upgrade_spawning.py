@@ -45,7 +45,7 @@ class UpgradeSpawning(Action):
         difficulty = gunner.get_diff()
         
         if self.delay == 1000 - difficulty * 15:
-            self.spawn_health_pack(cast)
+            self.spawn_health_pack(cast, difficulty * 5)
             self.delay = 0;
         else:
             self.delay += 1
@@ -65,7 +65,7 @@ class UpgradeSpawning(Action):
                     gunner.heal(healing_val)
         
                     
-    def spawn_health_pack(self, cast):
+    def spawn_health_pack(self, cast, difficulty):
         random_pick = random.randint(0,1)
         x_vals = [-100,1100]
         x = x_vals[random_pick]
@@ -81,6 +81,7 @@ class UpgradeSpawning(Action):
         body = Body(position, size, velocity)
         image = Image(HEALING_IMAGE)
         healing = HealingPack(body, image, False)
+        healing.set_health_gain(10+difficulty)
         cast.add_actor(HEALING_GROUP, healing)
     
     def spawn_nuke(cast):
