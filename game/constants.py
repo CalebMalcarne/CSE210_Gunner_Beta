@@ -29,6 +29,7 @@ FONT_LARGE = 30
 # SOUND
 LASER_SOUND = "game/assets/sounds/laser2.mp3"
 EXPLOSION = "game/assets/sounds/explosion1.mp3"
+#BACKGROUND = "game/assets/sounds/background.mp3"
 
 # TEXT
 ALIGN_CENTER = 0
@@ -102,4 +103,6 @@ NUKE_GROUP = "nukes"
 #BACKGROUND
 STAR_GROUP = "stars"
 STAR_ANIMATION = [f"game/assets/images/stars/Stars{n}.png" for n in range(1,7)]
+
+END_GAME_GROUP = "end"
 

@@ -53,7 +53,8 @@ class drawgunner(Action):
         
         image =  gunner.get_image()
         position = body.get_position()
-        self.draw_Lines(self._line_color, body)
+        if gunner.get_game_state() == False: 
+            self.draw_Lines(self._line_color, body)
         
         #self._video_service.draw_image(image, position)
 

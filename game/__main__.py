@@ -44,7 +44,9 @@ from game_.scripting.upgrade_spawning import UpgradeSpawning
 from game_.scripting.draw_upgrades import DrawUpgrades
 from game_.scripting.control_upgrades import ControlUpgrades
 
+from game_.scripting.draw_end_game import DrawEndGame
 
+from game_.scripting.play_sound_action import PlaySoundAction
 from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.casting.text import Text
@@ -77,7 +79,6 @@ def init_Gunner(cast):
     
 
 def init_Background(cast):
-
     x = 0
     y = 0
     position = Point(x,y)
@@ -153,6 +154,7 @@ def main():
     
     control_upgrades = ControlUpgrades()
     draw_upgrades = DrawUpgrades(video_service)
+    draw_end_game = DrawEndGame(video_service)
     upgrade_spawning = UpgradeSpawning(mouse_service, physics_service, audio_service, keyboard_service)
     
     control_boss = ControlBoss()
@@ -183,6 +185,7 @@ def main():
         script.add_action(OUTPUT, start_drawing_action)
         script.add_action(OUTPUT, draw_gunner)
         script.add_action(OUTPUT, draw_stats)
+        script.add_action(OUTPUT, draw_end_game)
         script.add_action(OUTPUT, enemy_spawning)
         script.add_action(OUTPUT, draw_explosion)
         script.add_action(OUTPUT, upgrade_spawning)

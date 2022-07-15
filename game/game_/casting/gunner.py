@@ -5,6 +5,8 @@ from game_.casting.point import Point
 class Gunner(Actor):
 
     def __init__(self, body, image, debug = False):
+        
+        self._game_over = False
 
         self.shoot = 0
         self._health = 100
@@ -26,11 +28,12 @@ class Gunner(Actor):
     def add_wepon_damage(self, damage):
         self._wepon_damage += damage
     
-    def add_kill(self, kill):
-        self._enemys_killed += kill
+    def add_kill(self):
+        self._enemys_killed += 1
 
     def add_points(self, points):
         self._points += points
+        
     
     #-----------------------------------#
     def set_health(self, health):
@@ -47,12 +50,15 @@ class Gunner(Actor):
     
     def set_diff(self, lvl):
         self._diff_lvl = lvl
+        
+    def set_game_over(self):
+        self._game_over = True
 
     #-----------------------------------#
     def get_diff(self):
         return self._diff_lvl
     
-    def get_killed(self):
+    def get_kills(self):
         return self._enemys_killed
 
     def get_health(self):
@@ -69,4 +75,7 @@ class Gunner(Actor):
 
     def get_image(self):
         return self._image
+    
+    def get_game_state(self):
+        return self._game_over
         

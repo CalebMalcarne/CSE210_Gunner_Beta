@@ -44,7 +44,7 @@ class UpgradeSpawning(Action):
         healing_packs = cast.get_actors(HEALING_GROUP)
         difficulty = gunner.get_diff()
         
-        if self.delay == 1000 - difficulty * 15:
+        if self.delay == 1000 - difficulty * 15 and gunner.get_game_state() == False:
             self.spawn_health_pack(cast, difficulty * 5)
             self.delay = 0;
         else:

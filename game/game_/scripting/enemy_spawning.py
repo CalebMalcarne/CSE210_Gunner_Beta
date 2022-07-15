@@ -35,7 +35,7 @@ class EnemySpawning(Action):
         enemys = cast.get_actors(ENEMEY_GROUP)
         gunner.set_diff(math.floor(self.difficulty_level))
         
-        if len(enemys) == 0:
+        if len(enemys) == 0 and gunner.get_game_state() == False:
             self.spawn_enemy(self.enemy_amounts, cast)
         
         for enemy in enemys:
@@ -62,6 +62,7 @@ class EnemySpawning(Action):
                     self.init_explosion((enemy_x-40), (enemy_y-80), cast)
                     cast.remove_actor(ENEMEY_GROUP, enemy)
                     gunner.add_points(enemy_point_val)
+                    gunner.add_kill()
                     
 
 
