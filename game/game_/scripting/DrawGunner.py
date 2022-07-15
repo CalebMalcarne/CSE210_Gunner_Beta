@@ -24,12 +24,15 @@ class drawgunner(Action):
         line_end_y_a = 800
         line_end_x_b = 0
         line_end_y_b = 0
+        
+        m = 25
 
-        self._video_service.draw_line(line_start_x, line_start_y, line_end_x_a, line_end_y_a, C, C)
-        self._video_service.draw_line(line_start_x, line_start_y, line_end_x_b, line_end_y_a, C, C)
-        self._video_service.draw_line(line_start_x, line_start_y, line_end_x_a, line_end_y_b, C, C)
-        self._video_service.draw_line(line_start_x, line_start_y, line_end_x_b, line_end_y_b, C, C)
-    
+        self._video_service.draw_line(line_start_x + m, line_start_y + m, line_end_x_a, line_end_y_a, C, C)
+        self._video_service.draw_line(line_start_x + m, line_start_y + m, line_end_x_b, line_end_y_a, C, C)
+        
+        self._video_service.draw_line(line_start_x + m, line_start_y + m, line_end_x_a, line_end_y_b, C, C)
+        self._video_service.draw_line(line_start_x + m, line_start_y + m, line_end_x_b, line_end_y_b, C, C)
+     
     def set_Line_Color(self, line_color):
         self._line_color = line_color
 

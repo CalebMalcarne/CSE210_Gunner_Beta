@@ -37,6 +37,10 @@ from game_.scripting.enemy_spawning import EnemySpawning
 from game_.casting.stars_background import StarsBackground
 from game_.scripting.draw_stars_action import DrawStars
 
+from game_.scripting.upgrade_spawning import UpgradeSpawning
+from game_.scripting.draw_upgrades import DrawUpgrades
+from game_.scripting.control_upgrades import ControlUpgrades
+
 from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.casting.text import Text
@@ -51,7 +55,7 @@ def init_Gunner(cast):
     size = Point(20,20)
     velocity = Point(0,0)
     body = Body(position, size, velocity)
-    image = Image(TEST_IMAGE)
+    image = Image(GUNNER_TEST_IMAGE)
     gunner = Gunner(body, image, False)
     cast.add_actor(GUNNER_GROUP,gunner)
 
@@ -138,6 +142,11 @@ def main():
     control_enemy = ControlEnemy()
     draw_enemy = DrawEnemy(video_service)
     enemy_spawning = EnemySpawning(mouse_service, physics_service, audio_service)
+    
+    control_upgrades = ControlUpgrades()
+    draw_upgrades = DrawUpgrades(video_service)
+    upgrade_spawning = UpgradeSpawning(mouse_service, physics_service, audio_service, keyboard_service)
+    
     control_boss = ControlBoss()
     draw_boss = DrawBoss(video_service)
     
@@ -156,13 +165,16 @@ def main():
         # TODO: add any input phase actions
         script.add_action(INPUT, controll_gunner)
         script.add_action(INPUT, control_enemy)
+        script.add_action(INPUT, control_upgrades)
         # TODO: add any update phase actions
         script.add_action(OUTPUT, draw_stars)
         script.add_action(OUTPUT, draw_enemy)
+        script.add_action(OUTPUT, draw_upgrades)
         script.add_action(OUTPUT, start_drawing_action)
         script.add_action(OUTPUT, draw_gunner)
         script.add_action(OUTPUT, draw_stats)
         script.add_action(OUTPUT, enemy_spawning)
+        script.add_action(OUTPUT, upgrade_spawning)
         # TODO: add any other output phase actions
         script.add_action(OUTPUT, end_drawing_action)
         script.add_action(UNLOAD, unload_assets_action)

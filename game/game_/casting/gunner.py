@@ -11,6 +11,7 @@ class Gunner(Actor):
         self._wepon_damage = 5
         self._enemys_killed = 0
         self._points = 0
+        self._diff_lvl = 0
 
         super().__init__(debug)
         self._body = body
@@ -43,8 +44,14 @@ class Gunner(Actor):
 
     def set_points(self, points):
         self._points = points
+    
+    def set_diff(self, lvl):
+        self._diff_lvl = lvl
 
     #-----------------------------------#
+    def get_diff(self):
+        return self._diff_lvl
+    
     def get_killed(self):
         return self._enemys_killed
 

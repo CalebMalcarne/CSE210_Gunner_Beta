@@ -70,7 +70,7 @@ RELEASE = 6
 
 # GUNNER
 GUNNER_GROUP = "gunner_group"
-TEST_IMAGE = "game/assets/images/blue.png"
+GUNNER_TEST_IMAGE = "game/assets/images/blue.png"
 GUNNER_HP_GROUP = "gunner_hp"
 GUNNER_POINTS_GROUP = "gunner_points"
 GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
@@ -81,10 +81,16 @@ TEST_IMAGE = "game/assets/images/Turtle.png"
 BOSS_HP_GROUP = "boss_hp"
 BOSS_SOUND = "game/assets/sounds/"
 
-#enemys
+#ENEMYS
 ENEMEY_GROUP = "enemys"
 ENEMEY_IMAGE = "game/assets/images"
 ENEMY_SOUND = "game/assets/sounds/" 
+
+#UPGRADES
+HEALING_GROUP = "healing"
+HEALING_IMAGE = "game/assets/images/healing.png"
+HEALING_SOUND = "game/assets/sounds/powerUp.wav"
+NUKE_GROUP = "nukes"
 
 #BACKGROUND
 STAR_GROUP = "stars"
