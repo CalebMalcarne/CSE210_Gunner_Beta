@@ -23,10 +23,6 @@ class DrawEnemy(Action):
             self._video_service.draw_image(image, position)
 
 
-            #self._video_service.health_bar(self._enemy.get_hitpoints())
-            #self._video_service.health_bar_size(self._enemy.get_size())
-            #self.points = self._enemy.get_points()
-
     
 
     
