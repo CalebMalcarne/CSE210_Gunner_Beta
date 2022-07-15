@@ -11,6 +11,8 @@ from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.casting.sound import Sound
 
+from game_.casting.animation import Animation
+
 class EnemySpawning(Action):
 
     def __init__(self, mouse_service, physics_service, audio_service):
@@ -73,7 +75,10 @@ class EnemySpawning(Action):
                 size = Point(40,40)
                 body = Body(position, size, velocity)
                 image = Image(TEST_IMAGE)
-                enemy = Enemy(body, image, False)
+                
+                animation = Animation(ENEMY_ANIMATIONS[random.randint(0,3)])
+                
+                enemy = Enemy(body, image, animation, False)
                 cast.add_actor(ENEMEY_GROUP,enemy)
 
                 self.enemies_spawned += 1

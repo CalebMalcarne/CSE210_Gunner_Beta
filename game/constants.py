@@ -86,9 +86,10 @@ BOSS_SOUND = "game/assets/sounds/"
 ENEMEY_GROUP = "enemys"
 ENEMEY_IMAGE = "game/assets/images"
 ENEMY_SOUND = "game/assets/sounds/" 
-ENEMY_ANIMATIONS = [[f"game/assets/images/Ship1/dove{n}.png" for n in range(1,5)], 
-                    [f"game/assets/images/Ship2/Lighter{n}.png" for n in range(1,5)],
-                    [f"game/assets/images/Ship3/Lightning{n}.png" for n in range(1,5)]]
+ENEMY_ANIMATIONS = [[f"game/assets/images/Ship1/Dove{n}.png" for n in range(1,5)], 
+                    [f"game/assets/images/Ship2/Ligher{n}.png" for n in range(1,5)],
+                    [f"game/assets/images/Ship3/Lightning{n}.png" for n in range(1,5)],
+                    ["game/assets/images/Turtle.png"]]
 
 #UPGRADES
 HEALING_GROUP = "healing"

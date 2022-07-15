@@ -14,4 +14,7 @@ class LoadAssetsAction(Action):
         self._video_service.load_fonts("game/assets/fonts")
         self._video_service.load_images("game/assets/images")
         self._video_service.load_images("game/assets/images/stars")
+        self._video_service.load_images("game/assets/images/Ship1")
+        self._video_service.load_images("game/assets/images/Ship2")
+        self._video_service.load_images("game/assets/images/Ship3")
         

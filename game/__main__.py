@@ -105,7 +105,10 @@ def init_enemys(cast):
         size = Point(40,40)
         body = Body(position, size, velocity)
         image = Image(TEST_IMAGE)
-        enemy = Enemy(body, image, False)
+        
+        animation = Animation(ENEMY_ANIMATIONS[random.randint(0,2)])
+                
+        enemy = Enemy(body, image, animation, False)
         cast.add_actor(ENEMEY_GROUP,enemy)
 
 def main():

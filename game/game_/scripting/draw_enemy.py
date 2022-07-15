@@ -17,6 +17,9 @@ class DrawEnemy(Action):
 
             image = enemy.get_image()
 
+            animation = enemy.get_animation()
+            image = animation.next_image()
+            position = body.get_position()
             self._video_service.draw_image(image, position)
 
 
