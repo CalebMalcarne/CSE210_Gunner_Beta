@@ -183,11 +183,11 @@ def main():
         script.add_action(OUTPUT, draw_enemy)
         script.add_action(OUTPUT, draw_upgrades)
         script.add_action(OUTPUT, start_drawing_action)
+        script.add_action(OUTPUT, draw_explosion)
         script.add_action(OUTPUT, draw_gunner)
         script.add_action(OUTPUT, draw_stats)
         script.add_action(OUTPUT, draw_end_game)
         script.add_action(OUTPUT, enemy_spawning)
-        script.add_action(OUTPUT, draw_explosion)
         script.add_action(OUTPUT, upgrade_spawning)
         # TODO: add any other output phase actions
         script.add_action(OUTPUT, end_drawing_action)

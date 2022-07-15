@@ -1,4 +1,5 @@
 from constants import *
+import time
 from game_.scripting.action import Action
 from game_.casting.sound import Sound
 from game_.casting.text import Text
@@ -15,9 +16,14 @@ class ControllGunner(Action):
         self._audio_service = audio_service
         self.delay = 0
         self.warning_delay = 0
+        self.end = 1
         
     
     def end_game(self, cast):
+        if self.end == 1:
+            self.end = 0
+            self._audio_service.play_sound(Sound(END_SONG))
+            self._audio_service.play_sound(Sound(END_VOICE))
         gunner = cast.get_first_actor(GUNNER_GROUP)
         score = gunner.get_points()
         kills = gunner.get_kills()

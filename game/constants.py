@@ -29,6 +29,8 @@ FONT_LARGE = 30
 # SOUND
 LASER_SOUND = "game/assets/sounds/laser2.mp3"
 EXPLOSION = "game/assets/sounds/explosion1.mp3"
+END_SONG = "game/assets/sounds/Game_over_music.wav"
+END_VOICE = "game/assets/sounds/Game_over_voice.wav"
 #BACKGROUND = "game/assets/sounds/background.mp3"
 
 # TEXT
