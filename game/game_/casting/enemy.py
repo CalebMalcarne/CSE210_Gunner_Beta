@@ -21,7 +21,7 @@ class Enemy(Actor):
     #     self.hitpoints = 50
     '''pay no attention to the code above this line, that was written during class'''
 
-    def __init__(self, body, image, debug = False):
+    def __init__(self, body, image, animation, debug = False):
 
         super().__init__(debug)
         self._body = body
@@ -29,9 +29,13 @@ class Enemy(Actor):
         self._image = image
         self._point_value = 50
         self.hitpoints = random.randint(50,100)
+        self.dead = 0
+        self._animation = animation
         #self.color = self.get_color(self.hitpoints)
         
-
+    def get_death_state(self):
+        return self.dead
+    
     def get_points(self):
         return self._point_value
     
@@ -47,6 +51,8 @@ class Enemy(Actor):
     def get_size(self):
         ''' for the size of the enemies'''
         return self.size
+    def get_animation(self):
+        return self._animation
 
     def set_hitpoints(self):
         ''' for the hitpoints of the enemies(this will be the difficulty), this will be used to determine the color of the enemy

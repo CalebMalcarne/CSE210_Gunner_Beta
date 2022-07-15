@@ -11,6 +11,7 @@ class ControllGunner(Action):
         self._video_service = video_service
         self._audio_service = audio_service
         self.delay = 0
+        self.warning_delay = 0
     
     def execute(self, cast, script, callback):
         fire_sound = GUNNER_SOUND
@@ -19,10 +20,19 @@ class ControllGunner(Action):
         body = gunner.get_body()
         self._mouse_service.hide_cursor()
         body.set_position(position)
+        gunner_hp = gunner.get_health()
         
         if(self._mouse_service.is_button_down("left")):
             self._audio_service.play_sound(Sound(LASER_SOUND))
         
+        if gunner_hp > 20:
+            self.warning_delay = 0
+        else:
+            if self.warning_delay > 300:
+                self._audio_service.play_sound(Sound(GUNNER_WARNING))
+                self.warning_delay  = 0
+            else:
+                self.warning_delay += 1
         
 
         if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
