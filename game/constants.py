@@ -10,8 +10,8 @@ GAME_NAME = "Gunner"
 FRAME_RATE = 60
 
 # SCREEN
-SCREEN_WIDTH = 480
-SCREEN_HEIGHT = 680
+SCREEN_WIDTH = 1080
+SCREEN_HEIGHT = 800
 CENTER_X = SCREEN_WIDTH / 2
 CENTER_Y = SCREEN_HEIGHT / 2
 
@@ -85,4 +85,8 @@ BOSS_SOUND = "game/assets/sounds/"
 ENEMEY_GROUP = "enemys"
 ENEMEY_IMAGE = "game/assets/images"
 ENEMY_SOUND = "game/assets/sounds/" 
+
+#BACKGROUND
+STAR_GROUP = "stars"
+STAR_ANIMATION = [f"game/assets/images/stars/Stars{n}.png" for n in range(1,7)]
 

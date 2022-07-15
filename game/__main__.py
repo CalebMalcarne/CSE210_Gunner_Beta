@@ -12,6 +12,7 @@ from game_.directing.director import Director
 from game_.casting.cast import Cast
 from game_.scripting.script import Script
 from game_.casting.point import Point
+from game_.casting.animation import Animation
 
 from game_.services.raylib.raylib_audio_service import RaylibAudioService
 from game_.services.raylib.raylib_video_service import RaylibVideoService
@@ -33,10 +34,15 @@ from game_.scripting.control_enemy import ControlEnemy
 from game_.scripting.draw_enemy import DrawEnemy
 from game_.scripting.enemy_spawning import EnemySpawning
 
+from game_.casting.stars_background import StarsBackground
+from game_.scripting.draw_stars_action import DrawStars
+
 from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.casting.text import Text
 from game_.casting.label import Label
+
+startGame = 1
 
 def init_Gunner(cast):
     x = SCREEN_WIDTH / 4
@@ -61,7 +67,17 @@ def init_Gunner(cast):
     label = Label(points, text_position)
     cast.add_actor(GUNNER_POINTS_GROUP, label)
     
-    
+
+def init_Background(cast):
+    x = 0
+    y = 0
+    position = Point(x,y)
+    size = Point(40,40)
+    velocity = Point(0,0)
+    body = Body(position, size, velocity)
+    animation = Animation(STAR_ANIMATION)
+    stars = StarsBackground(body, animation, False)
+    cast.add_actor(STAR_GROUP, stars)
 
 def init_Boss(cast):
     x = SCREEN_WIDTH / 4
@@ -103,6 +119,7 @@ def main():
     cast = Cast()
     init_Gunner(cast)
     init_enemys(cast)
+    init_Background(cast)
     
     # TODO: create any actors that we need
     # TODO: add the actors to tche cast in the appropriate group
@@ -130,22 +147,26 @@ def main():
     unload_assets_action = UnloadAssetsAction(audio_service, video_service)
     release_devices_action = ReleaseDevicesAction(audio_service, video_service)
     draw_stats = DrawStats(video_service)
+    draw_stars = DrawStars(video_service)
     
-    script.add_action(INITIALIZE, initialize_devices_action)
-    script.add_action(LOAD, load_assets_action)
-    # TODO: add any input phase actions
-    script.add_action(INPUT, controll_gunner)
-    script.add_action(INPUT, control_enemy)
-    # TODO: add any update phase actions
-    script.add_action(OUTPUT, draw_enemy)
-    script.add_action(OUTPUT, start_drawing_action)
-    script.add_action(OUTPUT, draw_gunner)
-    script.add_action(OUTPUT, draw_stats)
-    script.add_action(OUTPUT, enemy_spawning)
-    # TODO: add any other output phase actions
-    script.add_action(OUTPUT, end_drawing_action)
-    script.add_action(UNLOAD, unload_assets_action)
-    script.add_action(RELEASE, release_devices_action)
+
+    if startGame == 1:
+        script.add_action(INITIALIZE, initialize_devices_action)
+        script.add_action(LOAD, load_assets_action)
+        # TODO: add any input phase actions
+        script.add_action(INPUT, controll_gunner)
+        script.add_action(INPUT, control_enemy)
+        # TODO: add any update phase actions
+        script.add_action(OUTPUT, draw_stars)
+        script.add_action(OUTPUT, draw_enemy)
+        script.add_action(OUTPUT, start_drawing_action)
+        script.add_action(OUTPUT, draw_gunner)
+        script.add_action(OUTPUT, draw_stats)
+        script.add_action(OUTPUT, enemy_spawning)
+        # TODO: add any other output phase actions
+        script.add_action(OUTPUT, end_drawing_action)
+        script.add_action(UNLOAD, unload_assets_action)
+        script.add_action(RELEASE, release_devices_action)
 
     # start the game
     director = Director(video_service)
