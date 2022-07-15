@@ -37,9 +37,13 @@ from game_.scripting.enemy_spawning import EnemySpawning
 from game_.casting.stars_background import StarsBackground
 from game_.scripting.draw_stars_action import DrawStars
 
+from game_.casting.explosion import Explosion
+from game_.scripting.draw_explosion import DrawExplosion
+
 from game_.scripting.upgrade_spawning import UpgradeSpawning
 from game_.scripting.draw_upgrades import DrawUpgrades
 from game_.scripting.control_upgrades import ControlUpgrades
+
 
 from game_.casting.body import Body
 from game_.casting.image import Image
@@ -160,6 +164,8 @@ def main():
     release_devices_action = ReleaseDevicesAction(audio_service, video_service)
     draw_stats = DrawStats(video_service)
     draw_stars = DrawStars(video_service)
+    draw_explosion = DrawExplosion(video_service)
+    
     
 
     if startGame == 1:
@@ -177,6 +183,7 @@ def main():
         script.add_action(OUTPUT, draw_gunner)
         script.add_action(OUTPUT, draw_stats)
         script.add_action(OUTPUT, enemy_spawning)
+        script.add_action(OUTPUT, draw_explosion)
         script.add_action(OUTPUT, upgrade_spawning)
         # TODO: add any other output phase actions
         script.add_action(OUTPUT, end_drawing_action)

@@ -33,6 +33,9 @@ class Enemy(Actor):
         self._animation = animation
         #self.color = self.get_color(self.hitpoints)
         
+    def set_animation(self, new_animation):
+        self._animation = new_animation
+        
     def get_death_state(self):
         return self.dead
     

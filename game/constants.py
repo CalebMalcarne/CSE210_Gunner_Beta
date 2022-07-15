@@ -90,6 +90,8 @@ ENEMY_ANIMATIONS = [[f"game/assets/images/Ship1/Dove{n}.png" for n in range(1,5)
                     [f"game/assets/images/Ship2/Ligher{n}.png" for n in range(1,5)],
                     [f"game/assets/images/Ship3/Lightning{n}.png" for n in range(1,5)],
                     ["game/assets/images/Turtle.png"]]
+EXPLOSION_ANIMATION = [f"game/assets/images/Explosion/explotion{n}.png" for n in range(0,18)]
+EXPLOSION_GROUP = "explosion"
 
 #UPGRADES
 HEALING_GROUP = "healing"

@@ -6,6 +6,7 @@ from game_.scripting.action import Action
 from game_.casting.enemy import Enemy
 from game_.casting.point import Point
 from game_.casting.boss import Boss
+from game_.casting.explosion import Explosion
 
 from game_.casting.body import Body
 from game_.casting.image import Image
@@ -25,6 +26,7 @@ class EnemySpawning(Action):
         self.boss_spawn_threshold = 25
         self.difficulty_level = 0
         self.enemy_amounts = 0
+        self.kill_delay = 0
 
 
     def execute(self, cast, script, callback):
@@ -43,6 +45,8 @@ class EnemySpawning(Action):
             
             enemy_position = enemy_body.get_position()
             enemy_y = enemy_position.get_y()
+            enemy_x = enemy_position.get_x()
+            
             
             if enemy_y > 800:
                 cast.remove_actor(ENEMEY_GROUP, enemy)
@@ -50,11 +54,25 @@ class EnemySpawning(Action):
                   
             if(self._mouse_service.is_button_pressed("left")) or self.delay > 0:
                 if(self._physics_service.has_collided(gunner_body, enemy_body)):
+                    enemy_y = enemy_position.get_y()
+                    enemy_x = enemy_position.get_x()
                     self._audio_service.play_sound(Sound(EXPLOSION))
+                    #enemy.set_animation(Animation(EXPLOSION_ANIMATION))
+                    #enemy_body.set_position(Point(enemy_x-40, enemy_y-80))
+                    self.init_explosion((enemy_x-40), (enemy_y-80), cast)
                     cast.remove_actor(ENEMEY_GROUP, enemy)
                     gunner.add_points(enemy_point_val)
                     
 
+
+    def init_explosion(self, x, y, cast):
+        position = Point(x,y)
+        size = Point(40,40)
+        velocity = Point(0,0)
+        body = Body(position, size, velocity)
+        animation = Animation(EXPLOSION_ANIMATION)
+        exp = Explosion(body, animation, False)
+        cast.add_actor(EXPLOSION_GROUP, exp)
 
 
     def spawn_enemy(self, amount_of_enemies, cast):
