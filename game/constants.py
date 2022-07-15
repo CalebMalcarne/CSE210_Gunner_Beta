@@ -74,6 +74,7 @@ GUNNER_TEST_IMAGE = "game/assets/images/blue.png"
 GUNNER_HP_GROUP = "gunner_hp"
 GUNNER_POINTS_GROUP = "gunner_points"
 GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
+GUNNER_WARNING = "game/assets/sounds/LowHP.wav"
 
 #BOSS
 BOSS_GROUP = "boss"
@@ -85,6 +86,9 @@ BOSS_SOUND = "game/assets/sounds/"
 ENEMEY_GROUP = "enemys"
 ENEMEY_IMAGE = "game/assets/images"
 ENEMY_SOUND = "game/assets/sounds/" 
+ENEMY_ANIMATIONS = [[f"game/assets/images/Ship1/dove{n}.png" for n in range(1,5)], 
+                    [f"game/assets/images/Ship2/Lighter{n}.png" for n in range(1,5)],
+                    [f"game/assets/images/Ship3/Lightning{n}.png" for n in range(1,5)]]
 
 #UPGRADES
 HEALING_GROUP = "healing"
