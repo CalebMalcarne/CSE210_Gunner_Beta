@@ -76,6 +76,7 @@ GUNNER_GROUP = "gunner_group"
 GUNNER_TEST_IMAGE = "game/assets/images/blue.png"
 GUNNER_HP_GROUP = "gunner_hp"
 GUNNER_POINTS_GROUP = "gunner_points"
+GUNNER_NUKE_GROUP = "gunner_nukes"
 GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
 GUNNER_WARNING = "game/assets/sounds/LowHP.wav"
 
@@ -93,18 +94,24 @@ ENEMY_ANIMATIONS = [[f"game/assets/images/Ship1/Dove{n}.png" for n in range(1,5)
                     [f"game/assets/images/Ship2/Ligher{n}.png" for n in range(1,5)],
                     [f"game/assets/images/Ship3/Lightning{n}.png" for n in range(1,5)],
                     ["game/assets/images/Turtle.png"]]
-EXPLOSION_ANIMATION = [f"game/assets/images/Explosion/explotion{n}.png" for n in range(0,18)]
+EXPLOSION_ANIMATION = [f"game/assets/images/Explosion/explotion{n}.png" for n in range(0,19)]
 EXPLOSION_GROUP = "explosion"
 
 #UPGRADES
 HEALING_GROUP = "healing"
 HEALING_IMAGE = "game/assets/images/healing.png"
 HEALING_SOUND = "game/assets/sounds/powerUp.wav"
+NUKE_ANIMATION = [f"game/assets/images/nuke/frame_{n}_delay-0.07s.gif" for n in range(0,31)]
+NUKE_EXP_ANIMATION = [f"game/assets/images/nuke_exp/frame_{n}_delay-0.1s.gif" for n in range(0,7)]
+NUKE_IMAGE = "game/assets/images/nuke/frame_1_delay-0.07s.gif"
 NUKE_GROUP = "nukes"
+NUKE_SOUND = "game/assets/sounds/nuke.wav"
+NUKE_EXP = "nuke_exp"
 
 #BACKGROUND
 STAR_GROUP = "stars"
 STAR_ANIMATION = [f"game/assets/images/stars/Stars{n}.png" for n in range(1,7)]
-
 END_GAME_GROUP = "end"
+MAIN_LOOP = "game/assets/sounds/Loop.mp3"
+
 

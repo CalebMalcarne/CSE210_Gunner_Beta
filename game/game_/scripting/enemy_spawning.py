@@ -57,8 +57,6 @@ class EnemySpawning(Action):
                     enemy_y = enemy_position.get_y()
                     enemy_x = enemy_position.get_x()
                     self._audio_service.play_sound(Sound(EXPLOSION))
-                    #enemy.set_animation(Animation(EXPLOSION_ANIMATION))
-                    #enemy_body.set_position(Point(enemy_x-40, enemy_y-80))
                     self.init_explosion((enemy_x-40), (enemy_y-80), cast)
                     cast.remove_actor(ENEMEY_GROUP, enemy)
                     gunner.add_points(enemy_point_val)

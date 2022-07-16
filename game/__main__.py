@@ -45,8 +45,10 @@ from game_.scripting.draw_upgrades import DrawUpgrades
 from game_.scripting.control_upgrades import ControlUpgrades
 
 from game_.scripting.draw_end_game import DrawEndGame
+from game_.scripting.draw_nuke_exp import DrawNukeExp
 
 from game_.scripting.play_sound_action import PlaySoundAction
+from game_.scripting.play_loop_action import PlayLoopAction
 from game_.casting.body import Body
 from game_.casting.image import Image
 from game_.casting.text import Text
@@ -76,6 +78,12 @@ def init_Gunner(cast):
     text_position = Point(590, 10)
     label = Label(points, text_position)
     cast.add_actor(GUNNER_POINTS_GROUP, label)
+    
+    message = 0
+    points = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
+    text_position = Point(300, 740)
+    label = Label(points, text_position)
+    cast.add_actor(GUNNER_NUKE_GROUP, label)
     
 
 def init_Background(cast):
@@ -152,7 +160,7 @@ def main():
     draw_enemy = DrawEnemy(video_service)
     enemy_spawning = EnemySpawning(mouse_service, physics_service, audio_service)
     
-    control_upgrades = ControlUpgrades()
+    control_upgrades = ControlUpgrades(mouse_service, audio_service)
     draw_upgrades = DrawUpgrades(video_service)
     draw_end_game = DrawEndGame(video_service)
     upgrade_spawning = UpgradeSpawning(mouse_service, physics_service, audio_service, keyboard_service)
@@ -168,6 +176,7 @@ def main():
     draw_stats = DrawStats(video_service)
     draw_stars = DrawStars(video_service)
     draw_explosion = DrawExplosion(video_service)
+    draw_nuke_exp = DrawNukeExp(video_service)
     
     
 
@@ -184,8 +193,10 @@ def main():
         script.add_action(OUTPUT, draw_upgrades)
         script.add_action(OUTPUT, start_drawing_action)
         script.add_action(OUTPUT, draw_explosion)
+        script.add_action(OUTPUT, draw_nuke_exp)
         script.add_action(OUTPUT, draw_gunner)
         script.add_action(OUTPUT, draw_stats)
+        script.add_action(OUTPUT, PlayLoopAction(audio_service ,MAIN_LOOP))
         script.add_action(OUTPUT, draw_end_game)
         script.add_action(OUTPUT, enemy_spawning)
         script.add_action(OUTPUT, upgrade_spawning)

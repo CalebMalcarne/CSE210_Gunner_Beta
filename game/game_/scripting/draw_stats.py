@@ -27,6 +27,17 @@ class DrawStats(Action):
         position = gunner_points.get_position()
         self._video_service.draw_text(text, position)
         
+    def draw_Nuke_Amount(self, cast):   
+        gunner = cast.get_first_actor(GUNNER_GROUP)
+        gunner_points = cast.get_first_actor(GUNNER_NUKE_GROUP)
+        text = gunner_points.get_text()
+        num = gunner.get_nukes()
+        disp_points = f"Nukes:{num}"
+        text.set_value(disp_points)
+        position = gunner_points.get_position()
+        self._video_service.draw_text(text, position)
+        
     def execute(self, cast, script, callback):
         self.draw_HP(cast)
         self.draw_Points(cast)
+        self.draw_Nuke_Amount(cast)
