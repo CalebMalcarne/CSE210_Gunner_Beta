@@ -54,6 +54,7 @@ class ControlUpgrades(Action):
                 gunner.remove_nuke()
                 for enemy in enemys:
                     gunner.add_points(enemy.get_points())
+                    gunner.add_kill()
                 cast.clear_actors(ENEMEY_GROUP)
                 self._audio_service.play_sound(Sound(NUKE_SOUND))
                 self.init_Nuke_exp(cast)

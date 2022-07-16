@@ -29,8 +29,6 @@ class DrawUpgrades(Action):
             position = body.get_position()
             self._video_service.draw_image(image, position)
             
-    def draw_Nuke_explosion(self, cast):
-        pass
             
     def execute(self,cast, script, callback):
         self.draw_Healing(cast)
