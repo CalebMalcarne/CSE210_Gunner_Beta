@@ -82,7 +82,7 @@ GUNNER_WARNING = "game/assets/sounds/LowHP.wav"
 
 #BOSS
 BOSS_GROUP = "boss"
-TEST_IMAGE = "game/assets/images/Turtle.png"
+TEST_IMAGE = "game/assets/images/ship1.png"
 BOSS_HP_GROUP = "boss_hp"
 BOSS_SOUND = "game/assets/sounds/"
 

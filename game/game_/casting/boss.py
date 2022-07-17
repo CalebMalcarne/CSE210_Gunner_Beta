@@ -1,13 +1,14 @@
 from game_.casting.enemy import Enemy
+from constants import *
 
 class Boss(Enemy):
 
-    def __init__(self, body, image):
+    def __init__(self, body, animation, image):
 
         super().__init__(body, image, False)
         self.size = (80,70)
-        self.hitpoints = Enemy.set_hitpoints * 3 #3 times stronger than a normal enemy
-        self.color = self.boss_color(self.hitpoints)
+        # self.hitpoints = Enemy.set_hitpoints(Enemy) * 3
+        # self.color = self.boss_color(self.hitpoints)
 
     def should_spawn():
         # Once there have been 25 enemies then it will spawn the boss
