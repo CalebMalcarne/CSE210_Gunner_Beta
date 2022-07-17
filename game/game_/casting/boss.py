@@ -3,25 +3,16 @@ from constants import *
 
 class Boss(Enemy):
 
-    def __init__(self, body, animation, image):
+    def __init__(self, body, image, debug):
+        animation = "null"
 
-        super().__init__(body, image, False)
+        super().__init__(body, image, animation, debug)
         self.size = (80,70)
-        # self.hitpoints = Enemy.set_hitpoints(Enemy) * 3
-        # self.color = self.boss_color(self.hitpoints)
 
-    def should_spawn():
-        # Once there have been 25 enemies then it will spawn the boss
-        number_of_enemies = 0
-        if number_of_enemies == 25:
-            return True
-        else:
-            number_of_enemies += 1
-            return False
             
     def take_damage(self, damage):
         self.hitpoints -= damage
-        self.change_color()
+        #self.change_color()
 
 
 

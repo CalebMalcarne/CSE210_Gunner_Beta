@@ -31,6 +31,7 @@ LASER_SOUND = "game/assets/sounds/laser2.mp3"
 EXPLOSION = "game/assets/sounds/explosion1.mp3"
 END_SONG = "game/assets/sounds/Game_over_music.wav"
 END_VOICE = "game/assets/sounds/Game_over_voice.wav"
+MOTHERSHIP = "game/assets/sounds/mothership.wav"
 #BACKGROUND = "game/assets/sounds/background.mp3"
 
 # TEXT
@@ -93,7 +94,8 @@ ENEMY_SOUND = "game/assets/sounds/"
 ENEMY_ANIMATIONS = [[f"game/assets/images/Ship1/Dove{n}.png" for n in range(1,5)], 
                     [f"game/assets/images/Ship2/Ligher{n}.png" for n in range(1,5)],
                     [f"game/assets/images/Ship3/Lightning{n}.png" for n in range(1,5)],
-                    ["game/assets/images/Turtle.png"]]
+                    ["game/assets/images/Turtle.png"],
+                    ["game/assets/images/ship1.png"]]
 EXPLOSION_ANIMATION = [f"game/assets/images/Explosion/explotion{n}.png" for n in range(0,19)]
 EXPLOSION_GROUP = "explosion"
 

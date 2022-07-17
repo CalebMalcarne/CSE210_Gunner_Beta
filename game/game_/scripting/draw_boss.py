@@ -17,23 +17,12 @@ class DrawBoss(Action):
 
 
     def execute(self, cast, script, callback):
-        boss = cast.get_first_actor(BOSS_GROUP) 
+        boss_ = cast.get_actors(BOSS_GROUP)
+        
+        for boss in boss_:
+            body = boss.get_body()
+            position = body.get_position()
 
-        body = boss.get_body()
-        position = body.get_position()
-        image = boss.get_image()
-        self._video_service.draw_image(image, position)
-        # boss_width = 80
-        # boss_height = 70
-        # boss_x = self.get_x_location()
-        # boss_y = self.get_y_location()
-        # boss_color = Boss.boss_color()
+            image = boss.get_image()
 
-
-        self._video_service.draw_image(image, position)
-
-    def get_x_location(self):
-        return self.position_x
-
-    def get_y_location(self):
-        return self.position_y
+            self._video_service.draw_image(image, position)

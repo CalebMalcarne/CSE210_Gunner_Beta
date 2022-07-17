@@ -48,14 +48,18 @@ class ControlUpgrades(Action):
             body.set_position(position)
             
         if gunner.get_nukes() > 0:
+            boss = False
             enemys = cast.get_actors(ENEMEY_GROUP)
             gunner = cast.get_first_actor(GUNNER_GROUP)
             if(self._mouse_service.is_button_pressed("right")):
                 gunner.remove_nuke()
                 for enemy in enemys:
-                    gunner.add_points(enemy.get_points())
-                    gunner.add_kill()
-                cast.clear_actors(ENEMEY_GROUP)
+                    if enemy.get_boss_state():
+                        boss = True
+                    else:
+                        gunner.add_points(enemy.get_points())
+                        gunner.add_kill()
+                        cast.remove_actor(ENEMEY_GROUP, enemy)
                 self._audio_service.play_sound(Sound(NUKE_SOUND))
                 self.init_Nuke_exp(cast)
                 

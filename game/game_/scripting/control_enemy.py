@@ -1,5 +1,6 @@
 from constants import *
 from game_.scripting.action import Action
+from game_.casting.point import Point
 
 
 

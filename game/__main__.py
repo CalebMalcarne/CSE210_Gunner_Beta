@@ -97,16 +97,6 @@ def init_Background(cast):
     stars = StarsBackground(body, animation, False)
     cast.add_actor(STAR_GROUP, stars)
 
-def init_Boss(cast):
-    x = SCREEN_WIDTH / 4
-    y = SCREEN_HEIGHT / 4
-    position = Point(x,y)
-    size = Point(40,40)
-    velocity = Point(0,0)
-    body = Body(position, size, velocity)
-    image = Image(TEST_IMAGE)
-    boss = Boss(body, image, False)
-    cast.add_actor(BOSS_GROUP, boss)
 
 def init_enemys(cast):
     for i in range(5):
@@ -122,7 +112,7 @@ def init_enemys(cast):
         
         animation = Animation(ENEMY_ANIMATIONS[random.randint(0,2)])
                 
-        enemy = Enemy(body, image, animation, False)
+        enemy = Enemy(body, image, animation, 0,  False, False)
         cast.add_actor(ENEMEY_GROUP,enemy)
 
 def main():
@@ -186,10 +176,12 @@ def main():
         # TODO: add any input phase actions
         script.add_action(INPUT, controll_gunner)
         script.add_action(INPUT, control_enemy)
+        script.add_action(INPUT, draw_boss)
         script.add_action(INPUT, control_upgrades)
         # TODO: add any update phase actions
         script.add_action(OUTPUT, draw_stars)
         script.add_action(OUTPUT, draw_enemy)
+        script.add_action(OUTPUT, draw_boss)
         script.add_action(OUTPUT, draw_upgrades)
         script.add_action(OUTPUT, start_drawing_action)
         script.add_action(OUTPUT, draw_explosion)
