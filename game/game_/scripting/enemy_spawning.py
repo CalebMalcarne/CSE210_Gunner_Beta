@@ -77,12 +77,11 @@ class EnemySpawning(Action):
 
 
     def spawn_enemy(self, amount_of_enemies, cast):
-        # boss_check = spawn_boss(self)
         boss_check = False
         boss_present = False
         if boss_check == True and boss_present == False:
-            boss_present = True
-            # spawn boss command.
+            # boss_present = True
+            self.spawn_boss(cast)
         elif boss_check == False and boss_present == False:
             for i in range(amount_of_enemies):
                 x = random.randint(10, 1050)
@@ -108,21 +107,17 @@ class EnemySpawning(Action):
     
     def spawn_boss(self, cast):
 
-        # Spawn the boss.
-        if self.enemies_spawned >= self.boss_spawn_threshold * self.difficulty_level:
-            x = random.randint(10, 1050)
-            y = random.randint(-400, -50)
-            position = Point(x,y)
-            size = Point(40,40)
-            velocity = Point(0,0)
-            body = Body(position, size, velocity)
-            image = Image(TEST_IMAGE)
-            boss = Boss(body, image, False)
-            cast.add_actor(BOSS_GROUP, boss)
-        
-        # Don't spawn the boss.
-        else:
-            return False
+        x = random.randint(10, 1050)
+        y = random.randint(-400, -50)
+        position = Point(x, y)
+        vx = 0
+        vy = random.randint(3,6)
+        velocity = Point(vx,vy)
+        size = Point(40,40)
+        body = Body(position, size, velocity)
+        image = Image(TEST_IMAGE)                
+        boss = Boss(body, image, False)
+        cast.add_actor(BOSS_GROUP, boss)
 
     def increase_difficulty(self, amount):
         self.difficulty_level += .1

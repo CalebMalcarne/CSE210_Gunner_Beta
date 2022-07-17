@@ -9,7 +9,7 @@ class DrawEnemy(Action):
         #self._audio_service = audio_service
         pass
 
-    def execute(self,cast, script, callback):
+    def execute(self, cast, script, callback):
         enemys = cast.get_actors(ENEMEY_GROUP)
         for enemy in enemys:
             body = enemy.get_body()
