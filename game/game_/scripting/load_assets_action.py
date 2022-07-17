@@ -18,4 +18,5 @@ class LoadAssetsAction(Action):
         self._video_service.load_images("game/assets/images/Ship2")
         self._video_service.load_images("game/assets/images/Ship3")
         self._video_service.load_images("game/assets/images/Explosion")
-        
+        self._video_service.load_images("game/assets/images/nuke")
+        self._video_service.load_images("game/assets/images/nuke_exp")

@@ -26,8 +26,16 @@ class RaylibAudioService(AudioService):
         filepath = str(pathlib.Path(filepath))
         volume = sound.get_volume()
         sound = self._sounds[filepath]
-        # pyray.set_sound_volume(volume)
-        pyray.play_sound(sound)
+        pyray.set_sound_volume(sound, volume)
+        pyray.play_sound(sound, volume)
+        
+    def pause_sound(self, sound):
+        filepath = sound.get_filename()
+        # fixed os dependent filepath
+        filepath = str(pathlib.Path(filepath))
+        volume = sound.get_volume()
+        sound = self._sounds[filepath]
+        pyray.pause_sound(sound)
     
     def release(self):
         pyray.close_audio_device()
@@ -36,6 +44,9 @@ class RaylibAudioService(AudioService):
         for sound in self._sounds.values():
             pyray.unload_sound(sound)
         self._sounds.clear()
+        
+    def unload_sound(self, Sound):
+        pyray.unload_sound(Sound)
         
     def _get_filepaths(self, directory, filter):
         filepaths = []

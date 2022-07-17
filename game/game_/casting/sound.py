@@ -25,6 +25,9 @@ class Sound:
             A number representing the volume.
         """
         return self._volume
+    
+    def set_volume(self, volume):
+        self._volume = volume
 
     def is_repeated(self):
         """Whether or not the sound should be repeatedly played.

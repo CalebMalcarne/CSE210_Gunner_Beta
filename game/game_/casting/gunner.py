@@ -14,6 +14,7 @@ class Gunner(Actor):
         self._enemys_killed = 0
         self._points = 0
         self._diff_lvl = 0
+        self._nukes = 0
 
         super().__init__(debug)
         self._body = body
@@ -34,6 +35,11 @@ class Gunner(Actor):
     def add_points(self, points):
         self._points += points
         
+    def add_nuke(self):
+        self._nukes += 1
+        
+    def remove_nuke(self):
+        self._nukes = self._nukes - 1
     
     #-----------------------------------#
     def set_health(self, health):
@@ -53,8 +59,14 @@ class Gunner(Actor):
         
     def set_game_over(self):
         self._game_over = True
+        
+    def set_nukes(self, nukes):
+        self._nukes = nukes
 
     #-----------------------------------#
+    def get_nukes(self):
+        return self._nukes
+    
     def get_diff(self):
         return self._diff_lvl
     
