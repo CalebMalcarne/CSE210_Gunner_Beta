@@ -80,6 +80,7 @@ GUNNER_POINTS_GROUP = "gunner_points"
 GUNNER_NUKE_GROUP = "gunner_nukes"
 GUNNER_SOUND = "game/assets/sounds/Laser_Gun.MP3"
 GUNNER_WARNING = "game/assets/sounds/LowHP.wav"
+GUNNER_LVL_GROUP = "lvl"
 
 #BOSS
 BOSS_GROUP = "boss"

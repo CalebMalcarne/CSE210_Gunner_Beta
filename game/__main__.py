@@ -84,6 +84,12 @@ def init_Gunner(cast):
     text_position = Point(300, 740)
     label = Label(points, text_position)
     cast.add_actor(GUNNER_NUKE_GROUP, label)
+
+    message = 0
+    points = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
+    text_position = Point(800, 740)
+    label = Label(points, text_position)
+    cast.add_actor(GUNNER_LVL_GROUP, label)
     
 
 def init_Background(cast):
